@@ -1,0 +1,33 @@
+meta {
+  name: GetWeatherforecast
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseurl}}/weatherforecast
+  body: none
+  auth: none
+}
+
+tests {
+  test("Status code is 200", function () {
+      expect(res.getStatus()).to.equal(200);
+  });
+  
+  test("Number of forecasts should be 5", function () {
+       var jsonResponse = res.getBody();
+       expect(jsonResponse).to.be.an('array');
+       expect(jsonResponse).to.have.lengthOf(5, "Number of forecasts should be 5");
+  });
+  
+  let currentDate = new Date();
+  let expectedDate = new Date(currentDate);
+  expectedDate.setDate(currentDate.getDate() + 1);
+  
+  test("Date of first element should be tomorow", function () {
+      var responseJSON = res.getBody();
+      expect(responseJSON).to.be.an('array');
+      expect(responseJSON[0].date).to.equal( expectedDate.toISOString().slice(0, 10));
+  });
+}
