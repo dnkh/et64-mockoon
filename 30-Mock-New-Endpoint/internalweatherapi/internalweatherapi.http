@@ -1,0 +1,6 @@
+@internalweatherapi_HostAddress = http://localhost:5161
+
+GET {{internalweatherapi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

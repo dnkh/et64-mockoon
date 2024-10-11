@@ -1,0 +1,80 @@
+{
+  "uuid": "8f1418ed-33a5-4e8b-b8b1-a6a2edcef165",
+  "lastMigration": 32,
+  "name": "weatherapi",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3002,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "e36f331d-e7bf-4977-9a30-c1672c317c5e",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "weatherforecast",
+      "responses": [
+        {
+          "uuid": "9e301c7a-2c42-4120-9ed0-39b319f9d5d8",
+          "body": "[\n  {\n    \"date\": {\n      \"year\": {{faker 'number.int' max=99999}},\n      \"month\": {{faker 'number.int' max=99999}},\n      \"day\": {{faker 'number.int' max=99999}},\n      \"dayOfWeek\": \"{{oneOf (array '0' '1' '2' '3' '4' '5' '6')}}\",\n      \"dayOfYear\": {{faker 'number.int' max=99999}},\n      \"dayNumber\": {{faker 'number.int' max=99999}}\n    },\n    \"temperatureC\": {{faker 'number.int' max=99999}},\n    \"summary\": \"\"\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "OK",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "e36f331d-e7bf-4977-9a30-c1672c317c5e"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [],
+  "callbacks": []
+}

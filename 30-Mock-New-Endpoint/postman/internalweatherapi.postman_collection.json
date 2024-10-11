@@ -1,0 +1,129 @@
+{
+	"info": {
+		"_postman_id": "ab6c46ac-3521-4e77-9069-9b6d5743c9c9",
+		"name": "internalweatherapi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2259785"
+	},
+	"item": [
+		{
+			"name": "GetWeatherforecast",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Number of forecasts should be 5\", function () {\r",
+							"    var jsonResponse = pm.response.json();\r",
+							"    pm.expect(jsonResponse).to.be.an('array');\r",
+							"    pm.expect(jsonResponse).to.have.lengthOf(5, \"Number of forecasts should be 5\");\r",
+							"});\r",
+							"\r",
+							"let currentDate = new Date();\r",
+							"let expectedDate = new Date(currentDate);\r",
+							"expectedDate.setDate(currentDate.getDate() + 1);\r",
+							"\r",
+							"pm.test(\"Date of first element should be tomorow\", function () {\r",
+							"    var responseJSON = pm.response.json();\r",
+							"    pm.expect(responseJSON).to.be.an('array');\r",
+							"    pm.expect(responseJSON[0].date).to.equal(expectedDate.toISOString().slice(0, 10));\r",
+							"});\r",
+							"\r",
+							"const Summaries = [\"Arktisch\", \"Eisig\", \"Kalt\", \"Kühl\", \"Mild\", \"Warm\", \"Lau\", \"Heiß\", \"Glühend\", \"Sengend\"];\r",
+							"\r",
+							"function GetSummary(temperatureC) {\r",
+							"    if (temperatureC <= -10) {\r",
+							"        return Summaries[0];\r",
+							"    } else if (temperatureC > -10 && temperatureC <= 0) {\r",
+							"        return Summaries[1];\r",
+							"    } else if (temperatureC > 5 && temperatureC <= 10) {\r",
+							"        return Summaries[2];\r",
+							"    } else if (temperatureC > 10 && temperatureC <= 15) {\r",
+							"        return Summaries[3];\r",
+							"    } else if (temperatureC > 15 && temperatureC <= 20) {\r",
+							"        return Summaries[4];\r",
+							"    } else if (temperatureC > 20 && temperatureC <= 25) {\r",
+							"        return Summaries[5];\r",
+							"    } else if (temperatureC > 25 && temperatureC <= 30) {\r",
+							"        return Summaries[6];\r",
+							"    } else if (temperatureC > 30 && temperatureC <= 35) {\r",
+							"        return Summaries[7];\r",
+							"    } else if (temperatureC > 35 && temperatureC <= 40) {\r",
+							"        return Summaries[8];\r",
+							"    } else {\r",
+							"        return Summaries[9];\r",
+							"    }\r",
+							"}\r",
+							"\r",
+							"pm.test(\"Check summary2\", function () {\r",
+							"    var responseJSON = pm.response.json();\r",
+							"    pm.expect(responseJSON).to.be.an('array');\r",
+							"    pm.expect(responseJSON[0].summary2).to.equal(GetSummary(responseJSON[0].temperatureC));\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseurl}}/weatherforecast",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"weatherforecast"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseurl",
+			"value": "http://localhost:5161",
+			"type": "string"
+		}
+	]
+}

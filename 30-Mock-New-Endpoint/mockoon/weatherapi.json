@@ -1,0 +1,144 @@
+{
+  "uuid": "20e71313-aa38-4526-869a-7db40bc70826",
+  "lastMigration": 32,
+  "name": "Weatherapi",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3001,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "e77a0d50-ccaf-46e0-b654-c4ac6aa84d33",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "weatherforecastmock",
+      "responses": [
+        {
+          "uuid": "ab1a1f04-c238-4772-a8c8-a793d97b7671",
+          "body": "[\r\n    {\r\n        \"date\": \"2024-10-10\",\r\n        \"temperatureC\": 38,\r\n        \"summary\": \"Mild\"\r\n    },\r\n    {\r\n        \"date\": \"2024-10-11\",\r\n        \"temperatureC\": 19,\r\n        \"summary\": \"Cool\"\r\n    },\r\n    {\r\n        \"date\": \"2024-10-12\",\r\n        \"temperatureC\": 46,\r\n        \"summary\": \"Warm\"\r\n    },\r\n    {\r\n        \"date\": \"2024-10-13\",\r\n        \"temperatureC\": 42,\r\n        \"summary\": \"Cool\"\r\n    },\r\n    {\r\n        \"date\": \"2024-10-14\",\r\n        \"temperatureC\": 47,\r\n        \"summary\": \"Balmy\"\r\n    }\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "f1894914-45af-44bd-9050-28c63e02fb48",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "weatherforecast",
+      "responses": [
+        {
+          "uuid": "ce653fb7-ed4f-4892-afa5-1fc884925da4",
+          "body": "[\r\n    {\r\n        \"date\": \"2024-10-10\",\r\n        \"temperatureC\": 38,\r\n        \"summary\": \"Mild\"\r\n    },\r\n    {\r\n        \"date\": \"2024-10-11\",\r\n        \"temperatureC\": 19,\r\n        \"summary\": \"Cool\"\r\n    },\r\n    {\r\n        \"date\": \"2024-10-12\",\r\n        \"temperatureC\": 46,\r\n        \"summary\": \"Warm\"\r\n    },\r\n    {\r\n        \"date\": \"2024-10-13\",\r\n        \"temperatureC\": 42,\r\n        \"summary\": \"Cool\"\r\n    },\r\n    {\r\n        \"date\": \"2024-10-14\",\r\n        \"temperatureC\": 47,\r\n        \"summary\": \"Balmy\"\r\n    }\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "f4b7a176-244d-4826-aafe-846e9d1bde4f",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": "SEQUENTIAL"
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "e77a0d50-ccaf-46e0-b654-c4ac6aa84d33"
+    },
+    {
+      "type": "route",
+      "uuid": "f1894914-45af-44bd-9050-28c63e02fb48"
+    }
+  ],
+  "proxyMode": true,
+  "proxyHost": "http://localhost:5085",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [],
+  "callbacks": []
+}
